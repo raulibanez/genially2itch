@@ -1,34 +1,49 @@
-/*
-  This is your site JavaScript code - you can add interactivity!
-*/
+function generateZip() {
+    const url = document.getElementById('urlInput').value;
+    const errorMessage = document.getElementById('error-message');
+    errorMessage.textContent = ""; // Limpiar errores previos
 
-// Print a message in the browser's dev tools console each time the page loads
-// Use your menus or right-click / control-click and choose "Inspect" > "Console"
-console.log("Hello 🌎");
+    // Expresión regular para capturar el ID del proyecto
+    const match = url.match(/^https:\/\/scratch\.mit\.edu\/projects\/(\d+)\/?$/);
+    if (!match) {
+        errorMessage.textContent = "❌ URL no válida. Debe tener el formato: https://scratch.mit.edu/projects/XXXXXXXXX/";
+        return;
+    }
 
-/* 
-Make the "Click me!" button move when the visitor clicks it:
-- First add the button to the page by following the steps in the TODO 🚧
-*/
-const btn = document.querySelector("button"); // Get the button from the page
-if (btn) { // Detect clicks on the button
-  btn.onclick = function () {
-    // The 'dipped' class in style.css changes the appearance on click
-    btn.classList.toggle("dipped");
-  };
+    const projectID = match[1]; // Extraemos el ID del proyecto
+
+    // Crear el contenido del archivo index.html
+    const htmlContent = `<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Scratch</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+</head>
+<body>
+    <iframe
+        src="https://scratch.mit.edu/projects/${projectID}/embed"
+        allowtransparency="true"
+        width="954"
+        height="768"
+        frameborder="0"
+        scrolling="no"
+        allowfullscreen
+    ></iframe>
+</body>
+</html>`;
+
+    // Crear un nuevo ZIP
+    const zip = new JSZip();
+    zip.file("index.html", htmlContent);
+
+    // Generar y descargar el ZIP
+    zip.generateAsync({ type: "blob" }).then((content) => {
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(content);
+        link.download = "scratch.zip";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
 }
-
-
-// ----- GLITCH STARTER PROJECT HELPER CODE -----
-
-// Open file when the link in the preview is clicked
-let goto = (file, line) => {
-  window.parent.postMessage(
-    { type: "glitch/go-to-line", payload: { filePath: file, line: line } }, "*"
-  );
-};
-// Get the file opening button from its class name
-const filer = document.querySelectorAll(".fileopener");
-filer.forEach((f) => {
-  f.onclick = () => { goto(f.dataset.file, f.dataset.line); };
-});
