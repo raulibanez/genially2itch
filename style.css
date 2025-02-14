@@ -13,7 +13,7 @@ body {
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 80%;
+    width: 70%;
     max-width: 800px;
 }
 
@@ -55,13 +55,18 @@ button:hover {
     margin-top: 10px;
 }
 
-.preview-image {
-    width: 100%;
-    max-width: 500px;
-    margin-top: 20px;
-    border-radius: 5px;
+.title-example {
+  margin-top: 60px;
+  margin-bottom: 4px;
+  font-size: 16px;
 }
 
-img {
-  border: 1px;
+.preview-image {
+    width: 100%;
+    max-width: 500px; /* Ajusta el tamaño máximo */
+    margin-top: 0;
+    padding: 15px;
+    border: 1px solid #ccc; /* Borde de 1px color gris claro */
+    border-radius: 5px; /* Bordes ligeramente redondeados */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
 }
