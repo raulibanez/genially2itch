@@ -15,6 +15,7 @@ body {
     text-align: center;
     width: 70%;
     max-width: 800px;
+    z-index: -10;
 }
 
 h2, h3 {
@@ -34,7 +35,7 @@ input {
 }
 
 button {
-    background: #249ca3;
+    background: #965ae9;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -71,6 +72,19 @@ button:hover {
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
 }
 
-.highlight {
-  color: #249ca3;
+
+span.highlight {
+    position: relative;
+}
+
+span.highlight::after {
+    background-color: #c59ffa;
+    content: " ";
+    height: 30%;
+    position: absolute;
+    left: 0;
+    margin-left: -0.2rem;
+    top: 65%;
+    width: calc(100% + 0.2rem);
+    z-index: -1;
 }
