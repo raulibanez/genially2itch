@@ -34,7 +34,7 @@ input {
 }
 
 button {
-    background: #007bff;
+    background: #249ca3;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -69,4 +69,8 @@ button:hover {
     border: 1px solid #ccc; /* Borde de 1px color gris claro */
     border-radius: 5px; /* Bordes ligeramente redondeados */
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+.highlight {
+  color: #249ca3;
 }
