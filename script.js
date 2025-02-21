@@ -3,33 +3,25 @@ function generateZip() {
     const errorMessage = document.getElementById('error-message');
     errorMessage.textContent = ""; // Limpiar errores previos
 
-    // Expresión regular para capturar el ID del proyecto
-    const match = url.match(/^https:\/\/scratch\.mit\.edu\/projects\/(\d+)\/?$/);
+    // Expresión regular para capturar la URL válida de MakeCode Arcade
+    const match = url.match(/^https:\/\/arcade\.makecode\.com\/[\d-]+$/);
     if (!match) {
-        errorMessage.textContent = "❌ URL no válida. Debe tener el formato: https://scratch.mit.edu/projects/XXXXXXXXX/";
+        errorMessage.textContent = "❌ URL no válida. Debe tener el formato: https://arcade.makecode.com/XXXXXXXXX";
         return;
     }
-
-    const projectID = match[1]; // Extraemos el ID del proyecto
 
     // Crear el contenido del archivo index.html
     const htmlContent = `<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <title>Scratch</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="UTF-8">
+    <title>MakeCode Arcade</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
-    <iframe
-        src="https://scratch.mit.edu/projects/${projectID}/embed"
-        allowtransparency="true"
-        width="954"
-        height="768"
-        frameborder="0"
-        scrolling="no"
-        allowfullscreen
-    ></iframe>
+    <div><iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+            src="${url}" allowfullscreen="allowfullscreen" 
+            sandbox="allow-popups allow-forms allow-scripts allow-same-origin" frameborder="0"></iframe></div>
 </body>
 </html>`;
 
@@ -41,7 +33,7 @@ function generateZip() {
     zip.generateAsync({ type: "blob" }).then((content) => {
         const link = document.createElement("a");
         link.href = URL.createObjectURL(content);
-        link.download = "scratch.zip";
+        link.download = "makecode.zip";
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);

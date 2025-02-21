@@ -3,25 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Generador de ZIP para Itch.io</title>
+    <title>Generador de ZIP de MakeCode para Itch.io</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
-      <h2>Generador de ZIP para itch.io</h2>
+      <h2>Generador ZIP de MakeCode para Itch.io</h2>
       <p>
         Esta herramienta permite generar un archivo ZIP a partir de una página
-        de Scratch para subirlo a
+        de MakeCode Arcade para subirlo a
         <a href="https://itch.io" target="_blank">itch.io</a>. Solo necesitas
-        introducir la URL de tu proyecto <strong>público</strong> en Scratch y descargarás un ZIP listo
-        para subir.
+        introducir la URL de tu proyecto y descargarás un ZIP listo para subir.
       </p>
 
-      <label>Introduce la URL del proyecto de Scratch:</label>
+      <label>Introduce la URL del proyecto de MakeCode Arcade:</label>
       <input
         type="text"
         id="urlInput"
-        placeholder="https://scratch.mit.edu/projects/498923826/"
+        placeholder="https://arcade.makecode.com/29020-67360-30733-81888"
       />
       <button onclick="generateZip()">Generar ZIP</button>
 
@@ -29,7 +28,7 @@
 
       <h3 class="title-example">⬇️ Configuración recomendada en Itch.io ⬇️</h3>
       <img
-        src="https://cdn.glitch.global/dafbde60-e40a-42a7-9e3c-eece179dac7f/itch.png?v=1739523758738"
+        src="https://cdn.glitch.global/c4a196fe-72ed-40a1-ac2b-9fc7e804190d/itch.png?v=1740149257212"
         alt="Ejemplo de configuración en itch.io"
         class="preview-image"
       />
