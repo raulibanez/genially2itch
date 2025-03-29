@@ -4,7 +4,7 @@ function generateZip() {
     errorMessage.textContent = ""; // Limpiar errores previos
 
     // Expresión regular para capturar la URL válida de MakeCode Arcade
-    const match = url.match(/^https:\/\/arcade\.makecode\.com\/[\d-]+$/);
+    const match = url.match(/^https:\/\/arcade\.makecode\.com\/S?[\d-]+$/);
     if (!match) {
         errorMessage.textContent = "❌ URL no válida. Debe tener el formato: https://arcade.makecode.com/XXXXXXXXX";
         return;
