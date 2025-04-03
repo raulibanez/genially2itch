@@ -3,24 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Generador ZIP de MakeCode para Itch.io</title>
+    <title>Generador ZIP de Genially para Itch.io</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
-      <h2>Generador ZIP de <span class="highlight">MakeCode</span> para Itch.io</h2>
+      <h2>Generador ZIP de <span class="highlight">Genially</span> para Itch.io</h2>
       <p>
         Esta herramienta permite generar un archivo ZIP a partir de una página
-        de MakeCode Arcade para subirlo a
+        de Genially para subirlo a
         <a href="https://itch.io" target="_blank">itch.io</a>. Solo necesitas
-        introducir la URL de tu proyecto y descargarás un ZIP listo para subir.
+        introducir la URL de tu Genially y descargarás un ZIP listo para subir.
       </p>
 
-      <label>Introduce la URL del proyecto de MakeCode Arcade:</label>
+      <label>Introduce la URL del Genially:</label>
       <input
         type="text"
         id="urlInput"
-        placeholder="https://arcade.makecode.com/29020-67360-30733-81888"
+        placeholder="https://view.genially.com/XXXXXXXXXXXX"
       />
       <button onclick="generateZip()">Generar ZIP</button>
 
@@ -33,13 +33,12 @@
         class="preview-image"
       />
 
-      <!-- Nuevo tip para personalizar el CSS en itch.io -->
       <div class="tip">
-        <h3>💡 Consejo para mejor visualización en horizontal</h3>
-        <p>Para que el juego se vea mejor en horizontal en Itch.io, agrega el siguiente código en la sección <strong>"Custom CSS"</strong> de la página del proyecto:</p>
+        <h3>💡 Consejo para visualización óptima</h3>
+        <p>Agrega este código en <strong>"Custom CSS"</strong> en Itch.io:</p>
         <pre><code>.game_frame {
   width: 100% !important;
-  height: 500px !important;
+  height: 600px !important;
   max-width: 960px !important;
 }</code></pre>
       </div>
